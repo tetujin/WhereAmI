@@ -1,7 +1,7 @@
 # WhereAmI
-This application is intended for Android developers who want to use the indoor location api in Carnegie Mellon University (CMU).
+This application is intended for iOS developers who want to use the indoor location api in Carnegie Mellon University (CMU).
 
-## Sample source code for Android
+## Sample code for Android
 https://github.com/ubihuman/WhereAmI
 
 ## Project Link
