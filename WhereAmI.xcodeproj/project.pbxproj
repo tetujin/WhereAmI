@@ -15,6 +15,8 @@
 		1684E4341BF16E43000CB3D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1684E4321BF16E43000CB3D0 /* LaunchScreen.storyboard */; };
 		1684E43F1BF16E43000CB3D0 /* WhereAmITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1684E43E1BF16E43000CB3D0 /* WhereAmITests.m */; };
 		1684E44A1BF16E43000CB3D0 /* WhereAmIUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1684E4491BF16E43000CB3D0 /* WhereAmIUITests.m */; };
+		1684E45A1BF16EBB000CB3D0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1684E4591BF16EBB000CB3D0 /* SystemConfiguration.framework */; };
+		1684E45C1BF1728C000CB3D0 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1684E45B1BF1728C000CB3D0 /* ExternalAccessory.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,10 @@
 		1684E4451BF16E43000CB3D0 /* WhereAmIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhereAmIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1684E4491BF16E43000CB3D0 /* WhereAmIUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WhereAmIUITests.m; sourceTree = "<group>"; };
 		1684E44B1BF16E43000CB3D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1684E4571BF16E7D000CB3D0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		1684E4591BF16EBB000CB3D0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		1684E45B1BF1728C000CB3D0 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		1684E45D1BF1728C000CB3D0 /* WhereAmI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WhereAmI.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1684E45C1BF1728C000CB3D0 /* ExternalAccessory.framework in Frameworks */,
+				1684E45A1BF16EBB000CB3D0 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +89,9 @@
 		1684E4181BF16E43000CB3D0 = {
 			isa = PBXGroup;
 			children = (
+				1684E45B1BF1728C000CB3D0 /* ExternalAccessory.framework */,
+				1684E4591BF16EBB000CB3D0 /* SystemConfiguration.framework */,
+				1684E4571BF16E7D000CB3D0 /* CFNetwork.framework */,
 				1684E4231BF16E43000CB3D0 /* WhereAmI */,
 				1684E43D1BF16E43000CB3D0 /* WhereAmITests */,
 				1684E4481BF16E43000CB3D0 /* WhereAmIUITests */,
@@ -101,6 +112,7 @@
 		1684E4231BF16E43000CB3D0 /* WhereAmI */ = {
 			isa = PBXGroup;
 			children = (
+				1684E45D1BF1728C000CB3D0 /* WhereAmI.entitlements */,
 				1684E4271BF16E43000CB3D0 /* AppDelegate.h */,
 				1684E4281BF16E43000CB3D0 /* AppDelegate.m */,
 				1684E42A1BF16E43000CB3D0 /* ViewController.h */,
@@ -207,6 +219,12 @@
 				TargetAttributes = {
 					1684E4201BF16E43000CB3D0 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = FH352PYMNC;
+						SystemCapabilities = {
+							com.apple.WAC = {
+								enabled = 1;
+							};
+						};
 					};
 					1684E4391BF16E43000CB3D0 = {
 						CreatedOnToolsVersion = 7.1;
@@ -413,10 +431,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WhereAmI/WhereAmI.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = WhereAmI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.ac.keio.sfc.ht.tetujin.WhereAmI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -424,10 +448,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WhereAmI/WhereAmI.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = WhereAmI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.ac.keio.sfc.ht.tetujin.WhereAmI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
